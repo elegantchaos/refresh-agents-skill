@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="assets/logo.svg" alt="Refresh Agents - Agent Skill" height="100" />
+</p>
+
 # Refresh Agents
 
 This repository contains the `refresh-agents` agent skill.

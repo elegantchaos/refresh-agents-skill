@@ -1,4 +1,7 @@
 interface:
   display_name: "Agents Refresh"
   short_description: "Regenerate AGENTS.md and guideline docs from shared baseline"
+  icon_small: "./assets/refresh-agents-icon.svg"
+  icon_large: "./assets/refresh-agents-icon.png"
+  brand_color: "#1A1A1A"
   default_prompt: "Refresh this project's AGENTS.md from instructions/COMMON.md and codex/skills/refresh-agents/SKILL.md, preserve project-specific rules, copy relevant guideline modules into Extras/Documentation/Guidelines/, and report included/excluded modules with conflicts."
