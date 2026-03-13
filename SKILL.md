@@ -16,8 +16,8 @@ Decide the mode from user intent. If the user asks to update a specific reposito
 
 Resolve shared guidance from the team's shared agents repository:
 
-- `<shared-agents>/instructions/COMMON.md`
-- relevant files under `<shared-agents>/instructions/`
+- `~/.local/share/agents/instructions/COMMON.md`
+- relevant files under `~/.local/share/agents/instructions/`
 
 Required working inputs:
 
@@ -50,7 +50,7 @@ When inserting shared references into `AGENTS.md`:
 
 - Detect whether the target repository already has an `AGENTS.md`.
 - If it exists, read it first.
-- Read `instructions/COMMON.md` and only the instruction modules relevant to the detected stack.
+- Read `~/.local/share/agents/instructions/COMMON.md` and only the instruction modules relevant to the detected stack.
 - Detect technologies in use from repo evidence such as `.swift`, `Package.swift`, `.xcodeproj`, `pyproject.toml`, `requirements*.txt`, `package.json`, and `tsconfig.json`.
 
 2. Write `Project Specific Rules`
@@ -92,10 +92,10 @@ For fresh-file creation, do not put any of the following into `Project Specific 
 
 3. Write `Standard Rules`
 
-- Base this section on `instructions/COMMON.md`.
-- Always preserve the force of the baseline requirements from `instructions/COMMON.md`.
-- Include core guidance from `instructions/COMMON.md`, including engineering principles, testing and validation expectations, safety, and source-quality rules.
-- Add stack-relevant guidance from `instructions/` modules only when those languages, tools, or services are actually used.
+- Base this section on `~/.local/share/agents/instructions/COMMON.md`.
+- Always preserve the force of the baseline requirements from `~/.local/share/agents/instructions/COMMON.md`.
+- Include core guidance from `~/.local/share/agents/instructions/COMMON.md`, including engineering principles, testing and validation expectations, safety, and source-quality rules.
+- Add stack-relevant guidance from `~/.local/share/agents/instructions/` modules only when those languages, tools, or services are actually used.
 - Exclude unrelated modules.
 - Prefer concrete, checkable instructions over narrative explanation.
 - Compress for agent ingestion when helpful, but do not weaken meaning.
@@ -103,7 +103,7 @@ For fresh-file creation, do not put any of the following into `Project Specific 
 
 4. Point to shared guidance
 
-- In each section of `AGENTS.md`, add raw `~/...` paths to the relevant shared `instructions/` modules and applicable shared skills.
+- In each section of `AGENTS.md`, add raw `~/...` paths to the relevant shared `~/.local/share/agents/instructions/` modules and applicable shared skills.
 - Use the root-level instruction modules `Principles.md`, `Validation.md`, `Trusted Sources.md`, and `Good Code.md` by default.
 - Add language, technology, and service modules only when relevant.
 - When a workflow is already captured by a shared skill, point to that skill instead of restating the detailed procedure.
@@ -147,7 +147,7 @@ Use this when refreshing the shared agents infrastructure itself.
 
 ## Global Scope
 
-- Shared canonical rules live in `<shared-agents>/codex/rules/*.rules`.
+- Shared canonical rules live in `~/.local/share/agents/codex/rules/*.rules`.
 - Local runtime rules live in `<codex-home>/rules/*.rules`.
 - `default.rules` is a catch-all and should stay small. It may be empty.
 - The shared agents repository itself should be reviewed for process and guidance improvements.
@@ -184,7 +184,7 @@ If a command family appears repeatedly and does not fit an existing file cleanly
 
 ## Global Workflow
 
-1. Read shared `<shared-agents>/codex/rules/*.rules`.
+1. Read shared `~/.local/share/agents/codex/rules/*.rules`.
 2. Read `<codex-home>/rules/default.rules` and any runtime `*.rules` files that are not symlinks to shared files.
 3. Classify each entry in `default.rules`:
    - promote reusable entries into the correct shared rule file
@@ -192,14 +192,14 @@ If a command family appears repeatedly and does not fit an existing file cleanly
    - remove clearly one-off or machine-specific entries
    - keep only genuine leftovers
 4. Sort each shared rule file lexicographically and remove duplicates within and across shared files.
-5. Ensure every shared `*.rules` file has a symlink in `<codex-home>/rules/` pointing to `<shared-agents>/codex/rules/<name>.rules`.
+5. Ensure every shared `*.rules` file has a symlink in `<codex-home>/rules/` pointing to `~/.local/share/agents/codex/rules/<name>.rules`.
 6. Rewrite `default.rules` with only the remaining leftovers. If none remain, leave it empty.
 7. Review the shared agents repository for worthwhile improvements to:
    - workflows and maintenance procedures
    - shared scripts and automation helpers
    - published skills and skill boundaries
    - copied instruction modules and templates
-   - `COMMON.md` and `instructions/Principles.md`
+   - `~/.local/share/agents/instructions/COMMON.md` and `~/.local/share/agents/instructions/Principles.md`
 8. Base those suggestions on:
    - current industry practice and established engineering guidance
    - observed user behavior and repeated requests
