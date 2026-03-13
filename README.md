@@ -8,7 +8,7 @@ This repository contains the `refresh-agents` agent skill.
 
 ## Purpose
 
-Regenerate a project AGENTS.md and related guideline docs from the shared agents repository baseline. Use when updating stale project agent instructions, syncing standards into a repo, or running the refresh-agents skill.
+Refresh agent guidance either locally for one project or globally for the shared agents infrastructure. Use it to rebuild a project's AGENTS.md, or to review the shared agents repo, rules, scripts, skills, instructions, and principles.
 
 ## Compatibility
 
@@ -17,7 +17,8 @@ Regenerate a project AGENTS.md and related guideline docs from the shared agents
 
 ## Prerequisites
 
-A shared agents baseline repository
+- A shared agents baseline repository
+- For global mode, a Codex-style home directory and shared rules repository
 
 ## Shared Baseline
 
@@ -28,4 +29,3 @@ This skill assumes a shared AGENTS.md or shared-agents baseline and should say s
 - `SKILL.md`
 - `agents/openai.yaml` when host metadata is needed
 - optional support folders such as `references/`, `assets/`, or `scripts/`
-

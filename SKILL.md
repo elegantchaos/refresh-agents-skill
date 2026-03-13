@@ -1,11 +1,16 @@
 ---
 name: refresh-agents
-description: Regenerate a project AGENTS.md from the shared agents repository baseline. Use when updating stale project agent instructions, syncing standards into a repo, or running the refresh-agents skill.
+description: Refresh agent guidance either locally for one project or globally for the shared agents infrastructure. Use when rebuilding a project's AGENTS.md or when reviewing the shared agents repo, rules, scripts, skills, and principles.
 ---
 
 # Agents Refresh
 
-Rebuild a project's `AGENTS.md` from the shared baseline while preserving project-specific rules.
+Refresh agent guidance in one of two modes:
+
+- `local`: rebuild one project's `AGENTS.md` from the shared baseline while preserving project-specific rules
+- `global`: review and improve the shared agents infrastructure itself, including rules, scripts, skills, instructions, templates, and principles
+
+Decide the mode from user intent. If the user asks to update a specific repository's `AGENTS.md`, use `local`. If the user asks to improve the shared setup, shared rules, workflows, or agent infrastructure, use `global`.
 
 ## Shared Inputs
 
@@ -19,6 +24,13 @@ Required working inputs:
 - target project repository
 - target project's existing `AGENTS.md`, if present
 - repo evidence for project identity and stack detection, such as `README*`, package metadata, manifests, and top-level docs
+- for global mode, the shared agents repository itself plus the Codex runtime rules under `<codex-home>/rules`
+
+## Modes
+
+### Local Mode
+
+Use this when refreshing one project's `AGENTS.md`.
 
 ## Target Output
 
@@ -129,6 +141,83 @@ Check `Standard Rules` for softened requirement language in mandatory clauses:
 
 Remove or rewrite those phrases unless the source baseline explicitly uses them.
 
+### Global Mode
+
+Use this when refreshing the shared agents infrastructure itself.
+
+## Global Scope
+
+- Shared canonical rules live in `<shared-agents>/codex/rules/*.rules`.
+- Local runtime rules live in `<codex-home>/rules/*.rules`.
+- `default.rules` is a catch-all and should stay small. It may be empty.
+- The shared agents repository itself should be reviewed for process and guidance improvements.
+
+## Global Decision Rules
+
+Promote a rule into a shared `*.rules` file when all of the following are true:
+
+- it authorizes a reusable command family rather than a one-off task
+- it is not tied to a specific repository, branch, PR, issue, URL, path, or local history
+- it would still make sense on another machine or in another repository using the same tool
+
+Keep or leave a rule in `default.rules` only when it is genuinely not general enough for a shared file and is not safe to discard.
+
+Remove a rule entirely when it is:
+
+- already covered by an existing shared prefix
+- tied to absolute machine paths or hardcoded working directories
+- specific to one repository, PR, issue, release, URL, search query, JSON filter, or shell body
+- a one-off cleanup, recovery, polling, or migration command that does not represent a reusable approval
+
+## Global Rule Classification
+
+Classify reusable rules by command family:
+
+- `git ...` -> `git.rules`
+- `gh ...` -> `github.rules`
+- `swift ...` -> `swift.rules`
+- `xcodebuild ...` and related Apple build or simulator inspection commands -> `xcode.rules`
+- reusable tool wrappers and shared helper CLIs -> `tools.rules`
+- non-destructive shell helpers and simple polling helpers -> `misc.rules`
+
+If a command family appears repeatedly and does not fit an existing file cleanly, suggest a new shared rule file rather than stuffing unrelated rules into `default.rules`.
+
+## Global Workflow
+
+1. Read shared `<shared-agents>/codex/rules/*.rules`.
+2. Read `<codex-home>/rules/default.rules` and any runtime `*.rules` files that are not symlinks to shared files.
+3. Classify each entry in `default.rules`:
+   - promote reusable entries into the correct shared rule file
+   - remove entries already covered by shared prefixes
+   - remove clearly one-off or machine-specific entries
+   - keep only genuine leftovers
+4. Sort each shared rule file lexicographically and remove duplicates within and across shared files.
+5. Ensure every shared `*.rules` file has a symlink in `<codex-home>/rules/` pointing to `<shared-agents>/codex/rules/<name>.rules`.
+6. Rewrite `default.rules` with only the remaining leftovers. If none remain, leave it empty.
+7. Review the shared agents repository for worthwhile improvements to:
+   - workflows and maintenance procedures
+   - shared scripts and automation helpers
+   - published skills and skill boundaries
+   - copied instruction modules and templates
+   - `COMMON.md` and `instructions/Principles.md`
+8. Base those suggestions on:
+   - current industry practice and established engineering guidance
+   - observed user behavior and repeated requests
+   - common patterns in code and repositories the user has been working with recently
+   - new language, tooling, framework, or platform features
+   - recurring friction seen in prior rule approvals, scripts, or skill usage
+9. Verify the resulting shared files, runtime symlinks, final `default.rules` state, and any concrete repo changes you make.
+
+## Global Verification
+
+Check all of the following before finishing:
+
+- no duplicate entries remain within or across shared rule files
+- each shared rule file has a corresponding runtime symlink
+- `default.rules` contains no entries already covered by shared prefixes
+- `default.rules` contains no obviously machine-specific or one-off entries
+- any suggested workflow or guidance changes are tied to concrete evidence or current best practice, not generic preference
+
 ## Initial `Project Specific Rules` Examples
 
 Bad:
@@ -149,10 +238,22 @@ Good:
 
 Always include:
 
-- files changed
-- modules included and excluded
-- evidence used for stack detection
-- shared guidance files and skills referenced from `AGENTS.md`
-- unresolved local-vs-shared instruction conflicts
-- a baseline verification matrix with clause, status (`kept`, `rewritten-equivalent`, or `omitted-intentional`), and location in `AGENTS.md`
-- any intentionally omitted baseline clauses with rationale
+- for local mode:
+  - files changed
+  - modules included and excluded
+  - evidence used for stack detection
+  - shared guidance files and skills referenced from `AGENTS.md`
+  - unresolved local-vs-shared instruction conflicts
+  - a baseline verification matrix with clause, status (`kept`, `rewritten-equivalent`, or `omitted-intentional`), and location in `AGENTS.md`
+  - any intentionally omitted baseline clauses with rationale
+- for global mode:
+  - rules moved from `default.rules` into shared files
+  - rules removed from `default.rules` as redundant
+  - rules removed from `default.rules` as one-off or machine-specific
+  - sort and de-dup verification result
+  - symlink verification result
+  - any ambiguous rules that need user confirmation
+  - any suggested new shared rule files
+  - any risky broad approvals that deserve review
+  - any suggested or implemented improvements to workflows, scripts, skills, instructions, or principles
+  - the basis for those suggestions when they come from recent usage, repeated friction, or newer platform guidance
