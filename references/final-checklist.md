@@ -12,6 +12,7 @@ Always include:
 - unresolved local-vs-shared guidance conflicts
 - any intentional repository overrides to referenced skills or shared guides
 - confirmation that no `Standard Rules` bullet depends on the current wording of an in-scope skill
+- confirmation that no `Standard Rules` bullet is a shared-baseline maintenance instruction unless the repository itself owns shared guidance or published shared assets
 - a baseline verification matrix with clause, status (`kept`, `rewritten-equivalent`, or `omitted-intentional`), and location in `AGENTS.md`
 - any intentionally omitted baseline clauses with rationale
 

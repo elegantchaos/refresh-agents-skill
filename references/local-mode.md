@@ -35,6 +35,7 @@ When inserting shared references into the `Skills` section:
    - Detect whether the target repository already has an `AGENTS.md`.
    - If it exists, read it first.
    - Read `~/.local/share/agents/references/COMMON.md` and only the reference modules relevant to the detected stack.
+   - Read `~/.local/share/agents/references/Portability.md` only when the target repository itself maintains or publishes shared guidance, shared skills, shared rules, or shared configuration.
    - Read the shared skill instructions relevant to the detected stack and workflows when the shared baseline delegates detailed guidance to those skills.
    - Detect technologies in use from repo evidence such as `.swift`, `Package.swift`, `.xcodeproj`, `pyproject.toml`, `requirements*.txt`, `package.json`, and `tsconfig.json`.
 2. Write `Project Specific Rules`.
@@ -50,12 +51,14 @@ When inserting shared references into the `Skills` section:
    - Always preserve the force of the baseline requirements from `~/.local/share/agents/references/COMMON.md`.
    - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
    - Treat `~/.local/share/agents/references/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
-   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, portability, and safety.
+   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, source quality, portability, and safety.
    - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
    - Rewrite shared guidance as direct rules instead of citing local guidance files in this section.
    - Do not mention skills, skill names, or raw `~/...` guidance paths directly in this section.
+   - When carrying forward portability guidance, keep it project-relevant: prefer portable path references, repository-relative paths for local files, and `~/...` paths for shared resources. Do not include shared-baseline maintenance details.
+   - Do not emit meta-instructions about maintaining shared guidance, shared references, published skills, or canonical installation locations into a consumer repository's `Standard Rules`.
    - Do not restate procedural, stylistic, framework-specific, language-specific, or workflow-specific guidance that is owned by a referenced skill or shared guide.
    - If a rule would need to change when a referenced skill changes, it belongs in `Skills`, not `Standard Rules`.
    - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
@@ -68,6 +71,7 @@ When inserting shared references into the `Skills` section:
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
    - If the project depends on a shared non-skill guidance file that agents should consult directly, place that explicit path here rather than in `Standard Rules`.
+   - Do not include `~/.local/share/agents/references/Portability.md` for ordinary consumer repositories. Use it only when the target repository itself owns shared guidance or published shared assets and agents in that repository need those maintenance rules directly.
    - Use remaining shared reference modules only when no dedicated skill owns that guidance and they are actually relevant to the project.
    - Treat each referenced skill or shared guide as the source of truth for that domain.
    - If the repository intentionally overrides a referenced skill or shared guide, state that override explicitly in `Project Specific Rules`.
@@ -115,6 +119,8 @@ If any required clause is intentionally omitted, record the rationale in the fin
 Also verify that `Standard Rules` does not contain explicit skill references or raw `~/...` guidance paths, and that those explicit references appear under `Skills` instead.
 
 Also verify that each `Standard Rules` bullet is either baseline policy or durable repository policy, and that no `Standard Rules` bullet would need rewriting solely because an in-scope skill changed.
+
+Also verify that no `Standard Rules` bullet is a shared-baseline maintenance instruction unless the target repository itself owns shared guidance or published shared assets.
 
 ## Softened Requirement Phrases
 
