@@ -60,7 +60,9 @@ When inserting shared references into the `Skills` section:
    - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
 4. Write `Skills`.
    - For software repositories, include `~/.local/share/skills/coding-standards-skill/SKILL.md` by default.
-   - For Swift repositories, include `~/.local/share/skills/swift-guidance-skill/SKILL.md` by default.
+   - For Swift repositories, include `~/.local/share/skills/swift-skill/SKILL.md` by default.
+   - For JavaScript or TypeScript repositories, include `~/.local/share/skills/javascript-skill/SKILL.md` by default.
+   - For Python repositories, include `~/.local/share/skills/python-skill/SKILL.md` by default.
    - Add one bullet per shared skill that is in scope for the project.
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
