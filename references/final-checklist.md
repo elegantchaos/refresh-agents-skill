@@ -7,7 +7,8 @@ Always include:
 - files changed
 - modules included and excluded
 - evidence used for stack detection
-- shared guidance files and skills referenced from `AGENTS.md`
+- skills referenced from the `Skills` section
+- any shared guidance files explicitly referenced from the `Skills` section
 - unresolved local-vs-shared guidance conflicts
 - a baseline verification matrix with clause, status (`kept`, `rewritten-equivalent`, or `omitted-intentional`), and location in `AGENTS.md`
 - any intentionally omitted baseline clauses with rationale

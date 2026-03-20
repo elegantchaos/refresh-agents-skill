@@ -7,7 +7,7 @@ description: Refresh agent guidance either locally for one project or globally f
 
 Refresh agent guidance in one of two modes:
 
-- `local`: rebuild one project's `AGENTS.md` from the shared baseline while preserving project-specific rules
+- `local`: rebuild one project's `AGENTS.md` from the shared baseline while preserving project-specific rules and generating `Project Specific Rules`, `Standard Rules`, and `Skills`
 - `global`: review and improve the shared agents infrastructure itself, including rules, scripts, skills, references, and principles
 
 Read only the reference file needed for the current mode.
@@ -27,6 +27,6 @@ Read only the reference file needed for the current mode.
 
 ## References
 
-- `references/local-mode.md`: local `AGENTS.md` rebuild workflow, stack detection, output rules, and baseline verification
+- `references/local-mode.md`: local `AGENTS.md` rebuild workflow, three-section output rules, stack detection, and baseline verification
 - `references/global-mode.md`: shared-repo review workflow, rules cleanup policy, and verification
 - `references/final-checklist.md`: required response items for local mode and global mode

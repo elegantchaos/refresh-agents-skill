@@ -8,7 +8,7 @@ This repository contains the `refresh-agents` agent skill.
 
 ## Purpose
 
-Refresh agent guidance either locally for one project or globally for the shared agents infrastructure. Use it to rebuild a project's AGENTS.md, or to review the shared agents repo, rules, scripts, skills, references, and principles.
+Refresh agent guidance either locally for one project or globally for the shared agents infrastructure. Use it to rebuild a project's AGENTS.md with `Project Specific Rules`, `Standard Rules`, and `Skills`, or to review the shared agents repo, rules, scripts, skills, references, and principles.
 
 ## Compatibility
 

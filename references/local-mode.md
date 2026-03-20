@@ -21,8 +21,9 @@ Produce a compact, project-targeted `AGENTS.md` with exactly these sections:
 
 - `Project Specific Rules`
 - `Standard Rules`
+- `Skills`
 
-When inserting shared references into `AGENTS.md`:
+When inserting shared references into the `Skills` section:
 
 - use raw home-relative `~/...` paths
 - use plain path text, not markdown links
@@ -50,12 +51,15 @@ When inserting shared references into `AGENTS.md`:
    - Exclude unrelated modules.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
-   - If uncertain, preserve shared principles in `AGENTS.md` and point optional detail to shared modules or shared skills.
-4. Point to shared guidance.
-   - In each section of `AGENTS.md`, add raw `~/...` paths to the relevant shared `~/.local/share/agents/references/` modules and applicable shared skills.
-   - Use the root-level reference modules `Principles.md`, `Validation.md`, `Trusted Sources.md`, and `Good Code.md` by default.
-   - Add language, technology, and service modules only when relevant.
-   - When a workflow is already captured by a shared skill, point to that skill instead of restating the detailed procedure.
+   - Rewrite shared guidance as direct rules instead of citing local guidance files in this section.
+   - Do not mention skills, skill names, or raw `~/...` guidance paths directly in this section.
+   - Avoid detailed guidance in this section if it would overlap with a skill (and have the effect of pinning the instructions if the skill is later updated)
+4. Write `Skills`.
+   - Add one bullet per shared skill that is in scope for the project.
+   - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
+   - Include only the skills relevant to the detected stack and workflows.
+   - If the project depends on a shared non-skill guidance file that agents should consult directly, place that explicit path here rather than in `Standard Rules`.
+   - Use the root-level reference modules and shared skills only when they are actually relevant to the project.
 5. Add the regeneration note.
    - At the bottom of `AGENTS.md`, add `To refresh this file, use the <path-to-skill> skill.` with the actual home-relative path to this skill.
 6. Verify baseline requirements.
@@ -96,6 +100,8 @@ Verify that these clauses remain present in `Standard Rules` with equivalent for
 - source quality: prefer trusted primary sources for technical decisions
 
 If any required clause is intentionally omitted, record the rationale in the final response.
+
+Also verify that `Standard Rules` does not contain explicit skill references or raw `~/...` guidance paths, and that those explicit references appear under `Skills` instead.
 
 ## Softened Requirement Phrases
 
