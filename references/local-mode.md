@@ -46,20 +46,24 @@ When inserting shared references into the `Skills` section:
 3. Write `Standard Rules`.
    - Base this section on `~/.local/share/agents/references/COMMON.md`.
    - Always preserve the force of the baseline requirements from `~/.local/share/agents/references/COMMON.md`.
+   - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
    - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including engineering principles, testing and validation expectations, safety, and source-quality rules.
-   - Add stack-relevant guidance from `~/.local/share/agents/references/` modules only when those languages, tools, or services are actually used.
-   - Exclude unrelated modules.
+   - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
    - Rewrite shared guidance as direct rules instead of citing local guidance files in this section.
    - Do not mention skills, skill names, or raw `~/...` guidance paths directly in this section.
-   - Avoid detailed guidance in this section if it would overlap with a skill (and have the effect of pinning the instructions if the skill is later updated)
+   - Do not restate procedural, stylistic, framework-specific, or workflow-specific guidance that is owned by a referenced skill or shared guide.
+   - If a rule would need to change when a referenced skill changes, it belongs in `Skills`, not `Standard Rules`.
+   - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
 4. Write `Skills`.
    - Add one bullet per shared skill that is in scope for the project.
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
    - If the project depends on a shared non-skill guidance file that agents should consult directly, place that explicit path here rather than in `Standard Rules`.
    - Use the root-level reference modules and shared skills only when they are actually relevant to the project.
+   - Treat each referenced skill or shared guide as the source of truth for that domain.
+   - If the repository intentionally overrides a referenced skill or shared guide, state that override explicitly in `Project Specific Rules`.
 5. Add the regeneration note.
    - At the bottom of `AGENTS.md`, add `To refresh this file, use the <path-to-skill> skill.` with the actual home-relative path to this skill.
 6. Verify baseline requirements.
@@ -102,6 +106,8 @@ Verify that these clauses remain present in `Standard Rules` with equivalent for
 If any required clause is intentionally omitted, record the rationale in the final response.
 
 Also verify that `Standard Rules` does not contain explicit skill references or raw `~/...` guidance paths, and that those explicit references appear under `Skills` instead.
+
+Also verify that each `Standard Rules` bullet is either baseline policy or durable repository policy, and that no `Standard Rules` bullet would need rewriting solely because an in-scope skill changed.
 
 ## Softened Requirement Phrases
 
