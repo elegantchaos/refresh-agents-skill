@@ -8,6 +8,7 @@ Resolve shared guidance from the team's shared agents repository:
 
 - `~/.local/share/agents/references/COMMON.md`
 - relevant files under `~/.local/share/agents/references/`
+- relevant shared skills under `~/.local/share/skills/`
 
 Required working inputs:
 
@@ -34,6 +35,7 @@ When inserting shared references into the `Skills` section:
    - Detect whether the target repository already has an `AGENTS.md`.
    - If it exists, read it first.
    - Read `~/.local/share/agents/references/COMMON.md` and only the reference modules relevant to the detected stack.
+   - Read the shared skill instructions relevant to the detected stack and workflows when the shared baseline delegates detailed guidance to those skills.
    - Detect technologies in use from repo evidence such as `.swift`, `Package.swift`, `.xcodeproj`, `pyproject.toml`, `requirements*.txt`, `package.json`, and `tsconfig.json`.
 2. Write `Project Specific Rules`.
    - If `AGENTS.md` already exists, retain project-specific policies, constraints, architecture notes, and workflows at the top.
@@ -57,11 +59,13 @@ When inserting shared references into the `Skills` section:
    - If a rule would need to change when a referenced skill changes, it belongs in `Skills`, not `Standard Rules`.
    - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
 4. Write `Skills`.
+   - For software repositories, include `~/.local/share/skills/coding-standards-skill/SKILL.md` by default.
+   - For Swift repositories, include `~/.local/share/skills/swift-guidance-skill/SKILL.md` by default.
    - Add one bullet per shared skill that is in scope for the project.
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
    - If the project depends on a shared non-skill guidance file that agents should consult directly, place that explicit path here rather than in `Standard Rules`.
-   - Use the root-level reference modules and shared skills only when they are actually relevant to the project.
+   - Use remaining shared reference modules only when no dedicated skill owns that guidance and they are actually relevant to the project.
    - Treat each referenced skill or shared guide as the source of truth for that domain.
    - If the repository intentionally overrides a referenced skill or shared guide, state that override explicitly in `Project Specific Rules`.
 5. Add the regeneration note.

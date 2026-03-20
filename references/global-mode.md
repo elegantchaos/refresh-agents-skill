@@ -56,7 +56,7 @@ If a command family appears repeatedly and does not fit an existing file cleanly
    - shared scripts and automation helpers
    - published skills and skill boundaries
    - shared references and principles
-   - `~/.local/share/agents/references/COMMON.md` and `~/.local/share/agents/references/Principles.md`
+   - `~/.local/share/agents/references/COMMON.md`, the shared skill boundaries, and the remaining shared references
 8. Base those suggestions on:
    - current industry practice and established engineering guidance
    - observed user behavior and repeated requests
