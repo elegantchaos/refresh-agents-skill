@@ -49,13 +49,14 @@ When inserting shared references into the `Skills` section:
    - Base this section on `~/.local/share/agents/references/COMMON.md`.
    - Always preserve the force of the baseline requirements from `~/.local/share/agents/references/COMMON.md`.
    - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
-   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including engineering principles, testing and validation expectations, safety, and source-quality rules.
+   - Treat `~/.local/share/agents/references/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
+   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, portability, and safety.
    - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
    - Rewrite shared guidance as direct rules instead of citing local guidance files in this section.
    - Do not mention skills, skill names, or raw `~/...` guidance paths directly in this section.
-   - Do not restate procedural, stylistic, framework-specific, or workflow-specific guidance that is owned by a referenced skill or shared guide.
+   - Do not restate procedural, stylistic, framework-specific, language-specific, or workflow-specific guidance that is owned by a referenced skill or shared guide.
    - If a rule would need to change when a referenced skill changes, it belongs in `Skills`, not `Standard Rules`.
    - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
 4. Write `Skills`.
