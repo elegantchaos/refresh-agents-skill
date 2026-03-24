@@ -31,6 +31,7 @@ When inserting shared references into the `Skills` section:
 
 ## Workflow
 
+0. Use the `refresh-public-skills` skill to ensure that you have the latest versions of all public skills, and that they are cloned locally and linked into place
 1. Load context.
    - Detect whether the target repository already has an `AGENTS.md`.
    - If it exists, read it first.
@@ -64,6 +65,7 @@ When inserting shared references into the `Skills` section:
    - For Swift repositories, include `~/.local/share/skills/swift-skill/SKILL.md` by default.
    - For JavaScript or TypeScript repositories, include `~/.local/share/skills/javascript-skill/SKILL.md` by default.
    - For Python repositories, include `~/.local/share/skills/python-skill/SKILL.md` by default.
+   - Point to shared skills only when the referenced files exist in the current environment. If they do not, preserve the equivalent baseline guidance directly in `AGENTS.md` instead of emitting dead links.
    - Add one bullet per shared skill that is in scope for the project.
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.

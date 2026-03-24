@@ -41,6 +41,7 @@ If a command family appears repeatedly and does not fit an existing file cleanly
 
 ## Workflow
 
+0. Use the `refresh-public-skills` skill to ensure that you have the latest versions of all public skills, and that they are cloned locally and linked into place
 1. Read shared `~/.local/share/agents/codex/rules/*.rules`.
 2. Read `<codex-home>/rules/default.rules` and any runtime `*.rules` files that are not symlinks to shared files.
 3. Classify each entry in `default.rules`.
@@ -56,7 +57,7 @@ If a command family appears repeatedly and does not fit an existing file cleanly
    - shared scripts and automation helpers
    - published skills and skill boundaries
    - shared references and principles
-   - `~/.local/share/agents/references/COMMON.md`, the shared skill boundaries, and the remaining shared references
+   - the markdown files in `~/.local/share/agents/references/`
 8. Base those suggestions on:
    - current industry practice and established engineering guidance
    - observed user behavior and repeated requests
