@@ -29,6 +29,14 @@ When inserting shared references into the `Skills` section:
 - use raw home-relative `~/...` paths
 - use plain path text, not markdown links
 
+## Path Conventions
+
+- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/` or `~/.local/share/skills/`.
+- Use repository-relative paths only for files that are expected to exist inside the target repository.
+- Do not emit absolute machine-specific paths such as `/Users/<name>/...` or `/home/<name>/...` in generated `AGENTS.md` files.
+- Do not rely on the current working directory to resolve canonical shared resources in generated guidance.
+- Keep one canonical path form per resource family to avoid multiple resolution models.
+
 ## Workflow
 
 0. Use the `refresh-public-skills` skill to ensure that you have the latest versions of all public skills, and that they are cloned locally and linked into place
@@ -51,7 +59,7 @@ When inserting shared references into the `Skills` section:
    - Always preserve the force of the baseline requirements from `~/.local/share/agents/references/COMMON.md`.
    - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
    - Treat `~/.local/share/agents/references/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
-   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, portability, and safety.
+   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, and safety.
    - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.

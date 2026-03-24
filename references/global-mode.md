@@ -9,6 +9,15 @@ Use global mode when reviewing or improving the shared agents infrastructure its
 - Local runtime rules live in `<codex-home>/rules/*.rules`.
 - `default.rules` is a catch-all and should stay small. It may be empty.
 
+## Path Conventions
+
+- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/` or `~/.local/share/skills/`.
+- Do not use absolute machine-specific paths such as `/Users/<name>/...` or `/home/<name>/...` in shared guidance, skills, rules, or maintenance docs.
+- Do not rely on the current working directory to resolve canonical shared resources.
+- Keep one canonical path form per resource family to avoid multiple resolution models.
+- When editing shared docs, skills, or rules, update stale path references in the same change.
+- If a workflow depends on a standard installation location, state that location explicitly.
+
 ## Decision Rules
 
 Promote a rule into a shared `*.rules` file when all of the following are true:
