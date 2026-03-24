@@ -6,8 +6,7 @@ Use local mode when refreshing one project's `AGENTS.md`.
 
 Resolve shared guidance from the team's shared agents repository:
 
-- `~/.local/share/agents/references/COMMON.md`
-- relevant files under `~/.local/share/agents/references/`
+- `~/.local/share/agents/COMMON.md`
 - relevant shared skills under `~/.local/share/skills/`
 
 Required working inputs:
@@ -43,7 +42,7 @@ When inserting shared references into the `Skills` section:
 1. Load context.
    - Detect whether the target repository already has an `AGENTS.md`.
    - If it exists, read it first.
-   - Read `~/.local/share/agents/references/COMMON.md` and only the reference modules relevant to the detected stack.
+   - Read `~/.local/share/agents/COMMON.md`.
    - Read the shared skill instructions relevant to the detected stack and workflows when the shared baseline delegates detailed guidance to those skills.
    - Detect technologies in use from repo evidence such as `.swift`, `Package.swift`, `.xcodeproj`, `pyproject.toml`, `requirements*.txt`, `package.json`, and `tsconfig.json`.
 2. Write `Project Specific Rules`.
@@ -55,11 +54,11 @@ When inserting shared references into the `Skills` section:
    - Keep it short and factual.
    - Do not add extra bullets unless the user explicitly asks for them.
 3. Write `Standard Rules`.
-   - Base this section on `~/.local/share/agents/references/COMMON.md`.
-   - Always preserve the force of the baseline requirements from `~/.local/share/agents/references/COMMON.md`.
+   - Base this section on `~/.local/share/agents/COMMON.md`.
+   - Always preserve the force of the baseline requirements from `~/.local/share/agents/COMMON.md`.
    - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
-   - Treat `~/.local/share/agents/references/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
-   - Include core guidance from `~/.local/share/agents/references/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, and safety.
+   - Treat `~/.local/share/agents/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
+   - Include core guidance from `~/.local/share/agents/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, and safety.
    - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
@@ -77,8 +76,6 @@ When inserting shared references into the `Skills` section:
    - Add one bullet per shared skill that is in scope for the project.
    - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
-   - If the project depends on a shared non-skill guidance file that agents should consult directly, place that explicit path here rather than in `Standard Rules`.
-   - Use remaining shared reference modules only when no dedicated skill owns that guidance and they are actually relevant to the project.
    - Treat each referenced skill or shared guide as the source of truth for that domain.
    - If the repository intentionally overrides a referenced skill or shared guide, state that override explicitly in `Project Specific Rules`.
 5. Add the regeneration note.

@@ -5,7 +5,7 @@ Use global mode when reviewing or improving the shared agents infrastructure its
 ## Scope
 
 - Shared canonical rules live in `~/.local/share/agents/codex/rules/*.rules`.
-- Shared canonical reference modules live in `~/.local/share/agents/references/*.md`.
+- Shared canonical baseline guidance lives in `~/.local/share/agents/COMMON.md`.
 - Local runtime rules live in `<codex-home>/rules/*.rules`.
 - `default.rules` is a catch-all and should stay small. It may be empty.
 
@@ -65,8 +65,8 @@ If a command family appears repeatedly and does not fit an existing file cleanly
    - workflows and maintenance procedures
    - shared scripts and automation helpers
    - published skills and skill boundaries
-   - shared references and principles
-   - the markdown files in `~/.local/share/agents/references/`
+   - shared principles and baseline guidance
+   - the markdown files at the top level of `~/.local/share/agents/`, especially `COMMON.md`
 8. Base those suggestions on:
    - current industry practice and established engineering guidance
    - observed user behavior and repeated requests
