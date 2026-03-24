@@ -54,11 +54,10 @@ When inserting shared references into the `Skills` section:
    - Keep it short and factual.
    - Do not add extra bullets unless the user explicitly asks for them.
 3. Write `Standard Rules`.
-   - Base this section on `~/.local/share/agents/COMMON.md`.
-   - Always preserve the force of the baseline requirements from `~/.local/share/agents/COMMON.md`.
+   - Base this section on the shared baseline in `~/.local/share/agents/COMMON.md` and preserve the force of its requirements.
    - Keep this section limited to durable repo-wide obligations and baseline engineering policy.
-   - Treat `~/.local/share/agents/COMMON.md` as a minimal baseline, not the home for detailed coding or language guidance.
-   - Include core guidance from `~/.local/share/agents/COMMON.md`, including high-level principles, workflow expectations, testing and validation expectations, and safety.
+   - Treat that baseline as minimal, not the home for detailed coding or language guidance.
+   - Include its core guidance, including high-level principles, workflow expectations, testing and validation expectations, and safety.
    - Include stack-specific rules here only when they are explicit repository policy that should remain true even if related shared skills or guides change.
    - Prefer concrete, checkable instructions over narrative explanation.
    - Compress for agent ingestion when helpful, but do not weaken meaning.
