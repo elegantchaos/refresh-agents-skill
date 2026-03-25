@@ -25,8 +25,8 @@ Produce a compact, project-targeted `AGENTS.md` with exactly these sections:
 
 When inserting shared references into the `Skills` section:
 
-- use raw home-relative `~/...` paths
-- use plain path text, not markdown links
+- use skill names, not explicit file paths
+- use plain text, not markdown links
 
 ## Path Conventions
 
@@ -67,18 +67,18 @@ When inserting shared references into the `Skills` section:
    - If a rule would need to change when a referenced skill changes, it belongs in `Skills`, not `Standard Rules`.
    - `Standard Rules` must not silently narrow, pin, or override guidance delegated to `Skills`.
 4. Write `Skills`.
-   - For software repositories, include `~/.local/share/skills/coding-standards-skill/SKILL.md` by default.
-   - For Swift repositories, include `~/.local/share/skills/swift-skill/SKILL.md` by default.
-   - For JavaScript or TypeScript repositories, include `~/.local/share/skills/javascript-skill/SKILL.md` by default.
-   - For Python repositories, include `~/.local/share/skills/python-skill/SKILL.md` by default.
-   - Point to shared skills only when the referenced files exist in the current environment. If they do not, preserve the equivalent baseline guidance directly in `AGENTS.md` instead of emitting dead links.
+   - For software repositories, include `coding-standards` by default.
+   - For Swift repositories, include `swift` by default.
+   - For JavaScript or TypeScript repositories, include `javascript` by default.
+   - For Python repositories, include `python` by default.
+   - Refer to shared skills by name when they are available in the current environment. If a required skill is unavailable, preserve the equivalent baseline guidance directly in `AGENTS.md` instead of emitting a dead reference.
    - Add one bullet per shared skill that is in scope for the project.
-   - Use an imperative instruction for each bullet, such as `Use <path> for git operations.` or `Follow <path> for SwiftUI guidance.`
+   - Use an imperative instruction for each bullet, such as `Use the codex-git skill for git operations.` or `Follow the swiftui-pro skill for SwiftUI guidance.`
    - Include only the skills relevant to the detected stack and workflows.
    - Treat each referenced skill or shared guide as the source of truth for that domain.
    - If the repository intentionally overrides a referenced skill or shared guide, state that override explicitly in `Project Specific Rules`.
 5. Add the regeneration note.
-   - At the bottom of `AGENTS.md`, add `To refresh this file, use the <path-to-skill> skill.` with the actual home-relative path to this skill.
+   - At the bottom of `AGENTS.md`, add `To refresh this file, use the refresh-agents skill.`
 6. Verify baseline requirements.
 7. Lint for softened requirement language in mandatory clauses.
 

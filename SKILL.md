@@ -25,6 +25,22 @@ Read only the reference file needed for the current mode.
 3. For `global`, read `references/global-mode.md`.
 4. Before finishing, read `references/final-checklist.md` for the required response items.
 
+## Skill References
+
+When you mention other skills, follow these practical rules to avoid wasting context:
+  - Mention skills explicitly when they are genuinely repo-relevant.
+  - Prefer a short conditional instruction over a bare link dump.
+  - Keep operational skill references centralized in `Skills`; avoid scattering them elsewhere except for the required regeneration note.
+  - Do not summarize the skill in `AGENTS.md`; let the skill own its own detail.
+  
+Do not add skill references just for discovery. Assume that the available list of skills is already known.
+Point to skills to support selection, not invite eager loading.
+Use skill names, not explicit file paths.
+
+Examples:
+- Good: `Use the swiftui-pro skill for SwiftUI view work.`
+- Bad: `Also consider these 12 related skills...`
+
 ## References
 
 - `references/local-mode.md`: local `AGENTS.md` rebuild workflow, three-section output rules, stack detection, and baseline verification
