@@ -7,7 +7,7 @@ Use local mode when refreshing one project's `AGENTS.md`.
 Resolve shared guidance from the team's shared agents repository:
 
 - `~/.local/share/agents/COMMON.md`
-- relevant shared skills under `~/.local/share/skills/`
+- relevant shared skills under `~/.local/share/agents/skills/`
 
 Required working inputs:
 
@@ -30,7 +30,7 @@ When inserting shared references into the `Skills` section:
 
 ## Path Conventions
 
-- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/` or `~/.local/share/skills/`.
+- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/`.
 - Use repository-relative paths only for files that are expected to exist inside the target repository.
 - Do not emit absolute machine-specific paths such as `/Users/<name>/...` or `/home/<name>/...` in generated `AGENTS.md` files.
 - Do not rely on the current working directory to resolve canonical shared resources in generated guidance.

@@ -11,7 +11,7 @@ Use global mode when reviewing or improving the shared agents infrastructure its
 
 ## Path Conventions
 
-- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/` or `~/.local/share/skills/`.
+- Use raw home-relative `~/...` paths when referring to canonical shared resources under `~/.local/share/agents/`.
 - Do not use absolute machine-specific paths such as `/Users/<name>/...` or `/home/<name>/...` in shared guidance, skills, rules, or maintenance docs.
 - Do not rely on the current working directory to resolve canonical shared resources.
 - Keep one canonical path form per resource family to avoid multiple resolution models.
